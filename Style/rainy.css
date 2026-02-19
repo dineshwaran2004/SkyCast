@@ -1,0 +1,291 @@
+body{
+background-color: skyblue;
+text-transform: capitalize;
+}
+
+
+.grass {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 940px;
+    background: #2ecc71;      
+
+}
+
+/*  ------------------------------------- */
+
+.main{
+    margin-left: 160px;
+   
+    margin-right: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding: 66px;
+    position: relative;  
+}
+.card1{
+      width: 100px;
+    padding: 130px;
+    height: 280px;
+    background-color: #0096FF;
+    cursor: pointer;
+}
+.card2{
+    width: 100px;
+    padding: 130px;
+    height: 280px;
+
+    background-color: rgba(250, 245, 245, 0.937);
+
+    cursor: pointer;
+}
+
+.card3{
+      width: 100px;
+    padding: 130px;
+    height: 280px;
+
+    background: linear-gradient(to bottom, #030f38, #516ca2);
+
+    box-shadow: inset 0px 0px 10px rgb(44, 44, 45);
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------------- */
+/* in side of content */
+.place_card1{
+    
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    
+}
+.date_card1{
+
+    color: white;
+    margin-top: -80px;
+    margin-left: -80px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+}
+.img_card1{
+         width: 190px;
+      
+       margin-left: -40px;
+     transition: 2s;
+
+}
+.img_card1:hover{
+    transform: scale(1.2);
+}
+
+.deg_card1{
+
+    color: wheat;
+    font-size: 60px;
+    margin-top: -20px;
+    margin-left: 20px;
+    /* --------------------------------------------------------------------------------------------------------- */
+}
+.line_card1{
+
+     width: 350px;
+    height: 80px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    position: absolute;      
+    bottom: 90px;            
+    left: 70px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+
+
+}
+
+
+
+.drop_water{
+
+    width: 30px;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.water_drop_p{
+
+    color: white;
+   font-size: 30px;
+   margin-left: 10px;
+   margin-bottom: 40px;
+     
+}
+.wind_{
+
+   width: 40px;
+    margin-left: 5px;
+    margin-top:-50px;
+}
+.wind-power{
+    color: white;
+   font-size: 30px;
+   margin-left: -5px;
+   margin-bottom: 40px;
+}
+.sun_logo{
+     width: 30px;
+    margin-left: 5px;
+    margin-top: 30px;
+}
+.sun_deg{
+     color: white;
+   font-size: 30px;
+   margin-left: 5px;
+   margin-bottom: 40px;
+}
+/* --------------------------------------------------------------- */
+ video{ background-image: url(/Media/Img/rainyy.gif);
+    color: aliceblue;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  margin-left: -130px;
+    width: 360px;
+    height: 519px;
+    margin-top: -120px;
+ }
+ /* -------------------------------------------------------------- */
+
+.card3_div{
+   color: white;
+}
+p{
+    font-size: 25px;
+    color: wheat;
+    ;
+}
+.Morning{
+   margin-left: -110px;
+   margin-top: -90px;
+}
+.morning_log{
+
+    width: 70px;
+   margin-left: 140px;
+  margin-top: -220px;
+  transition: 3s;
+  
+}
+.morning_log:hover{
+    transform: scale(2);
+     box-shadow: 0px 5px 20px rgba(181, 159, 14, 0.981);
+    
+}
+
+/* --------------------------------- */
+.Afternoon
+{
+margin-left: -110px;
+   margin-top: -30px;
+}
+
+.afternoon_logo{
+
+    width: 70px;
+   margin-left: 140px;
+  margin-top: -220px;
+  transition: 3s;
+  
+}
+.afternoon_logo:hover{
+transform: scale(2);
+     box-shadow: 0px 5px 20px rgba(224, 132, 5, 0.981);
+}
+/* ================================================ */
+.Evening{
+
+    margin-left: -110px;
+   margin-top: -10px;
+}
+.evening_logo{
+
+    width: 70px;
+   margin-left: 140px;
+  margin-top: -220px;
+  transition: 3s;
+  
+}
+.evening_logo:hover{
+transform: scale(2);
+     box-shadow: 0px 5px 20px rgba(77, 76, 68, 0.981);
+
+}
+/* ----------------------------------------- */
+.Night{
+ 
+ margin-left: -110px;
+   margin-bottom: -60px;
+
+
+
+}
+
+.night_logo{
+
+    width: 70px;
+   margin-left: 140px;
+  margin-top: -500px;
+  transition: 3s;
+  
+}
+
+.night_logo:hover{
+transform: scale(2);
+     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.981);
+
+}
+
+/* --------------------------------- */
+.date{
+    margin-top: 40px;
+    margin-left: 10px;
+    font-size: 30px;
+    font-family: cursive;
+    font-weight: bolder;
+    color: aliceblue;
+    
+}
+.date::first-letter{
+    color: red;
+    font-size: 50px;
+}
+/* ----------------------------- */
+
+.back_button{
+margin-left: 1470px;
+margin-top: -90px;
+background-color: rgb(27, 22, 70);
+padding: 20px;
+border-radius: 6px;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size: 25px;
+color: white;
+transition: 2s;
+cursor: pointer;
+}
+.back_button:hover{
+
+    background-color: yellowgreen;
+}
+
+#bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 200%;
+    object-fit: cover;   /* Video will fill screen without stretching */
+    z-index: -1;         /* Send video behind all content */
+}

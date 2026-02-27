@@ -1,291 +1,663 @@
-body{
-background-color: skyblue;
-text-transform: capitalize;
-}
+ /* ============================================
+           CSS FOR CLOUD WEATHER APP - clouddy.css
+           ============================================ */
 
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.grass {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 940px;
-    background: #2ecc71;      
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
 
-}
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            min-height: 100%;
+            padding: 20px;
+            position: relative;
+        }
 
-/*  ------------------------------------- */
+        /* Background Video */
+        #bgVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.4;
+        }
 
-.main{
-    margin-left: 160px;
-   
-    margin-right: 50px;
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    padding: 66px;
-    position: relative;  
-}
-.card1{
-      width: 100px;
-    padding: 130px;
-    height: 280px;
-    background-color: #0096FF;
-    cursor: pointer;
-}
-.card2{
-    width: 100px;
-    padding: 130px;
-    height: 280px;
+        /* Date Input Section */
+        .date {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-    background-color: rgba(250, 245, 245, 0.937);
+        .date label {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #e0e0e0;
+            width: 100%;
+        }
 
-    cursor: pointer;
-}
+        .date input[type="time"],
+        .date input[type="date"] {
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 140px;
+        }
 
-.card3{
-      width: 100px;
-    padding: 130px;
-    height: 280px;
+        .date input[type="time"]:focus,
+        .date input[type="date"]:focus {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 15px rgba(100, 180, 255, 0.3);
+        }
 
-    background: linear-gradient(to bottom, #030f38, #516ca2);
+        .date input::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
 
-    box-shadow: inset 0px 0px 10px rgb(44, 44, 45);
-    cursor: pointer;
-}
+        /* Back Button */
+        .back_button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 25px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
 
-/* ---------------------------------------------------------------- */
-/* in side of content */
-.place_card1{
-    
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    
-}
-.date_card1{
+        .back_button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
 
-    color: white;
-    margin-top: -80px;
-    margin-left: -80px;
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 25px;
-}
-.img_card1{
-         width: 190px;
-      
-       margin-left: -40px;
-     transition: 2s;
+        .back_button:active {
+            transform: translateY(0);
+        }
 
-}
-.img_card1:hover{
-    transform: scale(1.2);
-}
+        a {
+            text-decoration: none;
+        }
 
-.deg_card1{
+        /* Main Container */
+        .main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-    color: wheat;
-    font-size: 60px;
-    margin-top: -20px;
-    margin-left: 20px;
-    /* --------------------------------------------------------------------------------------------------------- */
-}
-.line_card1{
+        /* Card 1 - Main Weather */
+        .card1 {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-     width: 350px;
-    height: 80px;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    position: absolute;      
-    bottom: 90px;            
-    left: 70px;
-    box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+        .card1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
 
+        .date_card1 {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
 
-}
+        .place_card1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: capitalize;
+        }
 
+        .img_card1 {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            /* Placeholder for missing image */
+            background: linear-gradient(135deg, #87ceeb, #4a90a4);
+            border-radius: 50%;
+            padding: 20px;
+        }
 
+        .deg_card1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ffffff, #64b5f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-.drop_water{
+        .line_card1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
 
-    width: 30px;
-    margin-left: 20px;
-    margin-top: 30px;
-}
+        .drop_water,
+        .wind_,
+        .sun_logo {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            /* Placeholder styling for missing images */
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            padding: 4px;
+        }
 
-.water_drop_p{
+        .water_drop_p,
+        .wind-power,
+        .sun_deg {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            margin-left: 5px;
+            margin-right: 15px;
+        }
 
-    color: white;
-   font-size: 30px;
-   margin-left: 10px;
-   margin-bottom: 40px;
-     
-}
-.wind_{
+        /* Card 2 - Video */
+        .card2 {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-height: 300px;
+        }
 
-   width: 40px;
-    margin-left: 5px;
-    margin-top:-50px;
-}
-.wind-power{
-    color: white;
-   font-size: 30px;
-   margin-left: -5px;
-   margin-bottom: 40px;
-}
-.sun_logo{
-     width: 30px;
-    margin-left: 5px;
-    margin-top: 30px;
-}
-.sun_deg{
-     color: white;
-   font-size: 30px;
-   margin-left: 5px;
-   margin-bottom: 40px;
-}
-/* --------------------------------------------------------------- */
- video{ background-image: url(/Media/Img/clouddy\ gif.gif);
+        .card2 video {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+
+        /* Card 3 - Daily Forecast */
+        .card3 {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card3_div {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 15px 20px;
+            align-items: center;
+        }
+
+        .card3_div h1 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .card3_div p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #64b5f6;
+            text-align: right;
+        }
+
+        .card3_div span {
+            display: contents;
+        }
+
+        .morning_log,
+        .afternoon_logo,
+        .evening_logo,
+        .night_logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            /* Placeholder styling for missing images */
+            background: linear-gradient(135deg, rgba(255, 200, 100, 0.3), rgba(255, 150, 50, 0.3));
+            border-radius: 12px;
+            padding: 8px;
+        }
+
+        .afternoon_logo {
+            background: linear-gradient(135deg, rgba(100, 180, 255, 0.3), rgba(50, 130, 200, 0.3));
+        }
+
+        .evening_logo {
+            background: linear-gradient(135deg, rgba(150, 100, 200, 0.3), rgba(100, 50, 150, 0.3));
+        }
+
+        .night_logo {
+            background: linear-gradient(135deg, rgba(50, 50, 100, 0.5), rgba(30, 30, 80, 0.5));
+        }
+
+        .Morning,
+        .Afternoon,
+        .Evening,
+        .Night {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card3_div p,
+        .morning_log,
+        .afternoon_logo,
+        .evening_logo,
+        .night_logo {
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ============================================
+           TABLET RESPONSIVE (768px and below)
+           ============================================ */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .date {
+                padding: 15px;
+                gap: 12px;
+            }
+
+            .date label {
+                font-size: 0.9rem;
+            }
+
+            .date input[type="time"],
+            .date input[type="date"] {
+                padding: 10px 14px;
+                font-size: 0.95rem;
+                min-width: 120px;
+            }
+
+            .back_button {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+
+            .main {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .card1 {
+                padding: 25px;
+            }
+
+            .place_card1 {
+                font-size: 1.75rem;
+            }
+
+            .img_card1 {
+                width: 100px;
+                height: 100px;
+            }
+
+            .deg_card1 {
+                font-size: 3.5rem;
+            }
+
+            .line_card1 {
+                gap: 15px;
+            }
+
+            .card3 {
+                padding: 20px;
+            }
+
+            .card3_div {
+                gap: 12px 15px;
+            }
+
+            .card3_div h1 {
+                font-size: 1rem;
+            }
+
+            .morning_log,
+            .afternoon_logo,
+            .evening_logo,
+            .night_logo {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* ============================================
+           MOBILE RESPONSIVE (480px and below)
+           ============================================ */
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .date {
+                padding: 12px;
+                gap: 10px;
+                border-radius: 12px;
+            }
+
+            .date label {
+                font-size: 0.85rem;
+                margin-bottom: 5px;
+            }
+
+            .date input[type="time"],
+            .date input[type="date"] {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+                border-radius: 8px;
+                width: 100%;
+                flex: none;
+            }
+
+            .back_button {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+                border-radius: 20px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .main {
+                gap: 12px;
+            }
+
+            .card1 {
+                padding: 20px 15px;
+                border-radius: 20px;
+            }
+
+            .date_card1 {
+                font-size: 0.8rem;
+            }
+
+            .place_card1 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .img_card1 {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 10px;
+            }
+
+            .deg_card1 {
+                font-size: 3rem;
+                margin-bottom: 20px;
+            }
+
+            .line_card1 {
+                gap: 8px;
+                padding-top: 15px;
+            }
+
+            .drop_water,
+            .wind_,
+            .sun_logo {
+                width: 20px;
+                height: 20px;
+            }
+
+            .water_drop_p,
+            .wind-power,
+            .sun_deg {
+                font-size: 0.8rem;
+                margin-right: 10px;
+            }
+
+            .card2 {
+                min-height: 200px;
+                padding: 15px;
+                border-radius: 20px;
+            }
+
+            .card3 {
+                padding: 15px;
+                border-radius: 20px;
+            }
+
+            .card3_div {
+                gap: 10px 12px;
+            }
+
+            .card3_div h1 {
+                font-size: 0.95rem;
+            }
+
+            .card3_div p {
+                font-size: 1rem;
+            }
+
+            .morning_log,
+            .afternoon_logo,
+            .evening_logo,
+            .night_logo {
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+                padding: 6px;
+            }
+        }
+
+        /* ============================================
+           EXTRA SMALL MOBILE (360px and below)
+           ============================================ */
+        @media screen and (max-width: 360px) {
+            body {
+                padding: 8px;
+            }
+
+            .date {
+                padding: 10px;
+            }
+
+            .card1 {
+                padding: 15px 12px;
+            }
+
+            .place_card1 {
+                font-size: 1.3rem;
+            }
+
+            .deg_card1 {
+                font-size: 2.5rem;
+            }
+
+            .img_card1 {
+                width: 70px;
+                height: 70px;
+            }
+
+            .line_card1 {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .card3_div {
+                grid-template-columns: 1fr auto auto;
+                gap: 8px 10px;
+            }
+
+            .card3_div h1 {
+                font-size: 0.85rem;
+            }
+
+            .card3_div p {
+                font-size: 0.9rem;
+            }
+
+            .morning_log,
+            .afternoon_logo,
+            .evening_logo,
+            .night_logo {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        /* ============================================
+           LANDSCAPE ORIENTATION ADJUSTMENTS
+           ============================================ */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            .main {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .card1 {
+                padding: 15px;
+            }
+
+            .deg_card1 {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .img_card1 {
+                width: 60px;
+                height: 60px;
+            }
+
+            .card2 {
+                min-height: 150px;
+            }
+
+            .card3_div h1 {
+                font-size: 0.9rem;
+            }
+
+            .morning_log,
+            .afternoon_logo,
+            .evening_logo,
+            .night_logo {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        /* ============================================
+           HOVER EFFECTS (for touch devices)
+           ============================================ */
+        @media (hover: none) {
+            .card1:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .back_button:hover {
+                transform: none;
+            }
+        }
+
+        /* ============================================
+           DARK MODE PREFERENCE
+           ============================================ */
+        @media (prefers-color-scheme: light) {
+            body {
+                background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            }
+
+            .card1,
+            .card2,
+            .card3 {
+                background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .date {
+                background: rgba(255, 255, 255, 0.7);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .date label,
+            .card3_div h1,
+            .place_card1 {
+                color: #1a237e;
+            }
+
+            .date input[type="time"],
+            .date input[type="date"] {
+                background: rgba(0, 0, 0, 0.05);
+                color: #333;
+            }
+
+            .date_card1,
+            .water_drop_p,
+            .wind-power,
+            .sun_deg {
+                color: #546e7a;
+            }
+
+            .deg_card1 {
+                background: linear-gradient(135deg, #1a237e, #3949ab);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+        }
+         video{ background-image: url(/Media/Img/clouddy\ gif.gif);
     color: aliceblue;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-  margin-left: -130px;
+  margin-left: -10px;
     width: 360px;
     height: 519px;
-    margin-top: -120px;
+    margin-top: 10px;
  }
- /* -------------------------------------------------------------- */
-
-.card3_div{
-   color: white;
-}
-p{
-    font-size: 25px;
-    color: wheat;
-    ;
-}
-.Morning{
-   margin-left: -110px;
-   margin-top: -90px;
-}
-.morning_log{
-
-    width: 70px;
-   margin-left: 140px;
-  margin-top: -220px;
-  transition: 3s;
-  
-}
-.morning_log:hover{
-    transform: scale(2);
-     box-shadow: 0px 5px 20px rgba(181, 159, 14, 0.981);
-    
-}
-
-/* --------------------------------- */
-.Afternoon
-{
-margin-left: -110px;
-   margin-top: -30px;
-}
-
-.afternoon_logo{
-
-    width: 70px;
-   margin-left: 140px;
-  margin-top: -220px;
-  transition: 3s;
-  
-}
-.afternoon_logo:hover{
-transform: scale(2);
-     box-shadow: 0px 5px 20px rgba(224, 132, 5, 0.981);
-}
-/* ================================================ */
-.Evening{
-
-    margin-left: -110px;
-   margin-top: -10px;
-}
-.evening_logo{
-
-    width: 70px;
-   margin-left: 140px;
-  margin-top: -220px;
-  transition: 3s;
-  
-}
-.evening_logo:hover{
-transform: scale(2);
-     box-shadow: 0px 5px 20px rgba(77, 76, 68, 0.981);
-
-}
-/* ----------------------------------------- */
-.Night{
- 
- margin-left: -110px;
-   margin-bottom: -60px;
-
-
-
-}
-
-.night_logo{
-
-    width: 70px;
-   margin-left: 140px;
-  margin-top: -500px;
-  transition: 3s;
-  
-}
-
-.night_logo:hover{
-transform: scale(2);
-     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.981);
-
-}
-
-/* --------------------------------- */
-.date{
-    margin-top: 40px;
-    margin-left: 10px;
-    font-size: 30px;
-    font-family: cursive;
-    font-weight: bolder;
-    color: aliceblue;
-    
-}
-.date::first-letter{
-    color: red;
-    font-size: 50px;
-}
-/* ----------------------------- */
-
-.back_button{
-margin-left: 1470px;
-margin-top: -90px;
-background-color: rgb(27, 22, 70);
-padding: 20px;
-border-radius: 6px;
-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-font-size: 25px;
-color: white;
-transition: 2s;
-cursor: pointer;
-}
-.back_button:hover{
-
-    background-color: yellowgreen;
-}
-
-#bgVideo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 150%;
-    height: 200%;
-    object-fit: cover;   /* Video will fill screen without stretching */
-    z-index: -1;         /* Send video behind all content */
-}

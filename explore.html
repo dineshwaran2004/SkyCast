@@ -1,18 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exploare</title>
-    <link rel="stylesheet" href="/Style/explore.css">
+    <title>sunny</title>
+    <link rel="stylesheet" href="Style/rainy.css">
 </head>
+
 <body>
- 
 
-     <div>
+    <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="rain_bg.mp4" type="video/mp4">
+    <audio autoplay loop>
+    <source src="rainy-ambience-200033.mp3" type="audio/mpeg">
+</audio>
+
+</video>
+<!-- ------------------------------------------------------------------------------------------------- -->
+<div class="date">
+    <label >Select date and time</label>
+    <input type="time">
+  <input type="date">
+
+</div>
+<!-- ------------------------------------------------------- -->
+
+    <a href="index.html"><button  class="back_button">Back to past</button></a>
+  
+    <!-------------------------------------------  -->
+    <div class="main">
+        <span class="card1">
+            
+<p  class="date_card1">monday,dec 9</p>
+            <h2 class="place_card1">tirupur</h2>
+            <img  class="img_card1"   src="rain.png" alt="">
+            <p  class="deg_card1">18°</p>
+            <div class="line_card1">
+                <img  class="drop_water"   src="drop.png"   alt="" ><span  class="water_drop_p">60%</span>
+                 <img  class="wind_"   src="wind-power.png"   alt="" ><span  class="wind-power">40/ms</span>
+                  <img  class="sun_logo"   src="sunlogo.png"   alt="" ><span  class="sun_deg">Low</span>
+            </div>
+        </span>
+        <!-- --------------------------------------------------------------------- -->
+        <span class="card2">
+       <video ></video>
+        </span>
+        <!-- --------------------------------------------------------------------------- -->
 
 
-        </section>
-     </div>
+        <span class="card3">
+           
+         <div class=" card3_div">
+            <h1 class="Morning">Morning</h1>
+           <span> <p>45%</p>                    <img    class="morning_log" src="rain_logo.png" alt=""></span>
+            <!-- /------------------------ -->
+             <h1 class="Afternoon">Afternoon</h1>
+             <p>20%</p><img  class="afternoon_logo"  src="rainy 20c.png" alt="">
+             <!-- ------------------------------- -->
+              <h1 class="Evening">Evening</h1>
+              <p>23%</p><img   class="evening_logo" src="black_cloud.png" alt="">
+              <!-- ----------------------------------- -->
+               <h1  class="Night">Night</h1>
+               <p>70%</p><img    class="night_logo"   src="night_hevyrain.png" alt="">
+         </div>
+
+        </span>
+    </div>
+
+
+
 </body>
+
 </html>
